@@ -7,7 +7,7 @@ import { AntDesign } from "@expo/vector-icons";
 import CustomButton from "../components/CustomButton";
 import users from "../assets/data/users.json";
 
-export default function ModalScreen({ route }) {
+export default function Event({ route }) {
   const id = route?.params?.id;
   console.log("Rendering event ", id);
 

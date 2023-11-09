@@ -12,7 +12,7 @@ import {
 } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
-import { ColorSchemeName, Pressable } from "react-native";
+import { ColorSchemeName, Pressable, View } from "react-native";
 
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
@@ -52,7 +52,7 @@ export default function Navigation({
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function RootNavigator() {
-  const isAuthenticated = false;
+  const isAuthenticated = true;
 
   if (!isAuthenticated) {
     return (
@@ -111,8 +111,12 @@ function BottomTabNavigator() {
         name="TabOne"
         component={TabOneScreen}
         options={({ navigation }: RootTabScreenProps<"TabOne">) => ({
-          title: "Home",
-          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
+          title: "",
+          tabBarIcon: ({ color }) => (
+          <View style={{ flex: 1, alignItems: "center", justifyContent: "center", marginTop: 10 }}>
+              <TabBarIcon name="home" color={color} />   
+          </View>
+          ),
           headerRight: () => (
             <Pressable
               onPress={() => navigation.navigate("Users")}
@@ -134,8 +138,12 @@ function BottomTabNavigator() {
         name="TabTwo"
         component={TabTwoScreen}
         options={{
-          title: "Profile",
-          tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
+          title: "",
+          tabBarIcon: ({ color }) =>( 
+          <View style={{ flex: 1, alignItems: "center", justifyContent: "center", marginTop: 10 }}>
+            <TabBarIcon name="user" color={color} />
+          </View>
+          ),
         }}
       />
     </BottomTab.Navigator>
