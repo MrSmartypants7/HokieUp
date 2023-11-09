@@ -5,6 +5,16 @@ import useCachedResources from './hooks/useCachedResources';
 import useColorScheme from './hooks/useColorScheme';
 import Navigation from './navigation';
 
+import { NhostClient, NhostReactProvider } from "@nhost/react";
+import * as SecureStore from 'expo-secure-store';
+
+const client = new NhostClient({
+  subdomain: "ofczmyymccyxjrvfnvny",
+  region: "us-east-1",
+  clientStorageType: 'expo-secure-storage',
+  clientStorage: SecureStore,
+})
+
 export default function App() {
   const isLoadingComplete = useCachedResources();
   const colorScheme = useColorScheme();
@@ -14,7 +24,9 @@ export default function App() {
   } else {
     return (
       <SafeAreaProvider>
-        <Navigation colorScheme={colorScheme} />
+        <NhostReactProvider nhost={client}>
+          <Navigation colorScheme={colorScheme} />
+        </NhostReactProvider>
         <StatusBar />
       </SafeAreaProvider>
     );
