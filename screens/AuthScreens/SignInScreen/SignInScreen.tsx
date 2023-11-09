@@ -14,7 +14,8 @@ import { useNavigation } from "@react-navigation/native";
 import { useForm } from "react-hook-form";
 
 const EMAIL_REGEX =
-  /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@vt\.edu$/;
+
 
 const SignInScreen = () => {
   const navigation = useNavigation();
@@ -48,7 +49,7 @@ const SignInScreen = () => {
       <View style={styles.container}>
         <CustomInput
           name="email"
-          placeholder="Email"
+          placeholder="VT Email"
           control={control}
           rules={{
             required: "Email is required",
@@ -64,12 +65,11 @@ const SignInScreen = () => {
           rules={{
             required: "Password is required",
             minLength: {
-              value: 3,
-              message: "Password should be minimum 3 characters long",
+              value: 8,
+              message: "Password should be minimum 8 characters long",
             },
           }}
         />
-
         <CustomButton
           text={loading ? "Loading..." : "Sign In"}
           onPress={handleSubmit(onSignInPressed)}
@@ -82,7 +82,7 @@ const SignInScreen = () => {
         />
         
         <CustomButton
-          text="Don't have an account? Create one"
+          text="Don't have an account? Sign up"
           onPress={onSignUpPress}
           type="TERTIARY"
         />
@@ -95,14 +95,17 @@ const styles = StyleSheet.create({
   root: {
     backgroundColor: "white",
     minHeight: "100%",
+    
   },
   container: {
     padding: 20,
+  
   },
   logo: {
     width: "100%",
     height: undefined,
     aspectRatio: 16 / 9,
+    marginTop: 100,
   },
 });
 

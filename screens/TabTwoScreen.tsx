@@ -11,7 +11,6 @@ export default function TabTwoScreen() {
     <View style={styles.container}>
       <Image source={{ uri: user?.avatarUrl }} style={styles.avatar} />
       <Text style={styles.name}>{user?.displayName}</Text>
-      <Text style={styles.about}>{user?.aboutSection}</Text>
       <View style={{ marginTop: "auto" }}>
         <CustomButton
           onPress={() => {}}
@@ -28,7 +27,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 10,
-    alignItems: "center",
+    alignItems: "center"
   },
   avatar: {
     width: 100,
@@ -40,8 +39,5 @@ const styles = StyleSheet.create({
     fontSize: 22,
     marginVertical: 15,
     color: "dimgray",
-  },
-  about: {
-    
   },
 });

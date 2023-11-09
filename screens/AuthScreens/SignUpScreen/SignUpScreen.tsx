@@ -62,7 +62,7 @@ const SignUpScreen = () => {
         <CustomInput
           name="email"
           control={control}
-          placeholder="Email"
+          placeholder="VT Email"
           rules={{
             required: "Email is required",
             pattern: { value: EMAIL_REGEX, message: "Email is invalid" },
