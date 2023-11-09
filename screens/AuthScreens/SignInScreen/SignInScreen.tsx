@@ -5,6 +5,7 @@ import {
   StyleSheet,
   useWindowDimensions,
   ScrollView,
+  Alert,
 } from "react-native";
 import Logo from "./logo.png";
 import CustomInput from "../components/CustomInput";
@@ -12,6 +13,7 @@ import CustomButton from "../components/CustomButton";
 //import SocialSignInButtons from "../components/SocialSignInButtons";
 import { useNavigation } from "@react-navigation/native";
 import { useForm } from "react-hook-form";
+import { useSignInEmailPassword } from '@nhost/react'
 
 const EMAIL_REGEX =
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@vt\.edu$/;
@@ -19,20 +21,29 @@ const EMAIL_REGEX =
 
 const SignInScreen = () => {
   const navigation = useNavigation();
-  const [loading, setLoading] = useState(false);
+  //const [loading, setLoading] = useState(false);
 
   const { control, handleSubmit } = useForm();
 
+  const { signInEmailPassword, isLoading} =useSignInEmailPassword();
+
   const onSignInPressed = async (data) => {
-    if (loading) {
+    if (isLoading) {
       return;
     }
 
-    setLoading(true);
+    const { email, password} = data;
 
-    // Sign in
+    const { error, needsEmailVerification} = await signInEmailPassword(email, password);
 
-    setLoading(false);
+
+    if(error) {
+      Alert.alert('Oops', error.message);
+    }
+
+    if(needsEmailVerification) {
+      Alert.alert('Verify your email', "Check your email and follow the linkf");
+    }
   };
 
   const onForgotPasswordPressed = () => {
@@ -71,7 +82,7 @@ const SignInScreen = () => {
           }}
         />
         <CustomButton
-          text={loading ? "Loading..." : "Sign In"}
+          text={isLoading ? "Loading..." : "Sign In"}
           onPress={handleSubmit(onSignInPressed)}
         />
 
