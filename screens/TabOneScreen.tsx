@@ -14,7 +14,7 @@ export default function TabOneScreen({
     return (
       <Pressable
         style={[styles.item, { height: reservation.height }]}
-        onPress={() => navigation.navigate("Modal", { id: reservation.id })}
+        onPress={() => navigation.navigate("Event", { id: reservation.id })}
       >
         <Text style={{ fontSize, color }}>{reservation.name}</Text>
       </Pressable>
@@ -22,9 +22,11 @@ export default function TabOneScreen({
   };
 
   const renderEmptyDate = () => {
+    const fontSize = 16;
+    const color = "black";
     return (
       <View style={styles.emptyDate}>
-        <Text>This is empty date!</Text>
+        <Text style={{ fontSize, color }}>This is empty date!</Text>
       </View>
     );
   };

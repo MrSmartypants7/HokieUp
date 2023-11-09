@@ -4,11 +4,15 @@ import { Platform, StyleSheet, Image } from "react-native";
 import { View, Text } from "../components/Themed";
 import event from "../assets/data/event.json";
 import { AntDesign } from "@expo/vector-icons";
+
 import CustomButton from "../components/CustomButton";
 import users from "../assets/data/users.json";
+import React from "react";
+import navigation from "../navigation";
 
-export default function Event({ route }) {
+export default function ModalScreen({ route }) {
   const id = route?.params?.id;
+
   console.log("Rendering event ", id);
 
   const onJoin = () => {};
