@@ -2,7 +2,6 @@ import { StyleSheet, Text, Pressable, Alert, ActivityIndicator } from "react-nat
 import { View } from "../components/Themed";
 import { RootTabScreenProps } from "../types";
 import { Agenda, AgendaEntry, AgendaSchedule } from "react-native-calendars";
-import events from "../assets/data/events.json";
 import { gql, useQuery } from '@apollo/client';
 
 const getEvent = gql`
@@ -75,7 +74,7 @@ export default function TabOneScreen({
     <View style={styles.container}>
       <Agenda
         items={events}
-        selected="2022-11-24"
+        selected="2023-11-10"
         renderItem={renderItem}
         renderEmptyDate={renderEmptyDate}
       />

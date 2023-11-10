@@ -1,23 +1,87 @@
 import { StatusBar } from "expo-status-bar";
-import { Platform, StyleSheet, Image } from "react-native";
+import { Platform, StyleSheet, Image, ActivityIndicator, Alert } from "react-native";
 
 import { View, Text } from "../components/Themed";
-import event from "../assets/data/event.json";
 import { AntDesign } from "@expo/vector-icons";
 
 import CustomButton from "../components/CustomButton";
-import users from "../assets/data/users.json";
 import React from "react";
-import navigation from "../navigation";
+import { gql, useQuery, useMutation } from '@apollo/client';
+import { useUserId } from '@nhost/react';
+
+const getEvent = gql`
+  query GetEvent($id: uuid!) {
+    Event_by_pk(id: $id) {
+      id
+      name
+      date
+      EventAttendee {
+        user {
+          id
+          displayName
+          avatarUrl
+        }
+      }
+    }
+  }
+`;
+
+const JoinEvent = gql`
+  mutation InsertEventAttendee($eventId: uuid!, $userId: uuid!) {
+    insert_EventAttendee(objects: [{ eventId: $eventId, userId: $userId }]) {
+      returning {
+        id
+        userId
+        eventId
+        Event {
+          id
+          EventAttendee {
+            id
+          }
+        }
+      }
+    }
+  }
+`;
 
 export default function ModalScreen({ route }) {
   const id = route?.params?.id;
+  const userId = useUserId();
 
-  console.log("Rendering event ", id);
 
-  const onJoin = () => {};
+  const { data, loading, error } = useQuery(getEvent, {variables: {id:id}})
+  const event = data?.Event_by_pk;
 
-  const displayedUsers = users.slice(0, 5);
+  const [ doJoinEvent ] = useMutation(JoinEvent);
+
+  const onJoin = async () => {
+    try {
+      await doJoinEvent({ variables: { userId: userId, eventId: id}});
+    } catch (e) {
+      Alert.alert("Failed to join the event", error?.message)
+    }
+  };
+
+  const displayedUsers = (event?.EventAttendee || [])
+  .slice(0, 5)
+  .map((attendee) => attendee.user);
+
+  const joined = event?.EventAttendee?.some(
+    (attendee) => attendee.user.id === userId
+  );
+
+  if (error) {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.title}>Couldn't find the event</Text>
+        <Text>{error.message}</Text>
+      </View>
+    );
+  }
+  
+  if (loading) {
+    return <ActivityIndicator />;
+  }
 
   return (
     <View style={styles.container}>
@@ -47,11 +111,14 @@ export default function ModalScreen({ route }) {
               { transform: [{ translateX: -15 * displayedUsers.length }] },
             ]}
           >
-            <Text>+{users.length - displayedUsers.length}</Text>
+            <Text>+{event?.EventAttendee?.length - displayedUsers.length}</Text>
           </View>
         </View>
 
-        <CustomButton text="Join the event" onPress={onJoin} />
+        {!joined ? (
+          <CustomButton text="Join the event" onPress={onJoin} />
+        ): null}
+        
       </View>
 
       {/* Use a light status bar on iOS to account for the black space above the modal */}
