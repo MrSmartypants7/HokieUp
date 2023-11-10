@@ -13,8 +13,10 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "@apollo/client": "^3.8.7",
     "@expo/vector-icons": "^13.0.0",
     "@nhost/react": "^2.1.0",
+    "@nhost/react-apollo": "^6.0.0",
     "@react-navigation/bottom-tabs": "^6.0.5",
     "@react-navigation/native": "^6.0.2",
     "@react-navigation/native-stack": "^6.1.0",

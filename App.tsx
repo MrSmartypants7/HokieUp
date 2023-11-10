@@ -6,6 +6,7 @@ import useColorScheme from './hooks/useColorScheme';
 import Navigation from './navigation';
 
 import { NhostClient, NhostReactProvider } from "@nhost/react";
+import { NhostApolloProvider } from '@nhost/react-apollo';
 import * as SecureStore from 'expo-secure-store';
 
 const client = new NhostClient({
@@ -25,7 +26,9 @@ export default function App() {
     return (
       <SafeAreaProvider>
         <NhostReactProvider nhost={client}>
-          <Navigation colorScheme={colorScheme} />
+          <NhostApolloProvider nhost={client}>
+            <Navigation colorScheme={colorScheme} />
+          </NhostApolloProvider>
         </NhostReactProvider>
         <StatusBar />
       </SafeAreaProvider>
