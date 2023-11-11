@@ -22,7 +22,6 @@ import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
 import TabOneScreen from "../screens/TabOneScreen";
 import TabTwoScreen from "../screens/TabTwoScreen";
-import UsersScreen from "../screens/UsersScreen";
 import {
   RootStackParamList,
   RootTabParamList,
@@ -91,7 +90,6 @@ function RootNavigator() {
       />
       <Stack.Group screenOptions={{ presentation: "modal" }}>
         <Stack.Screen name="Event" component={ModalScreen} />
-        <Stack.Screen name="Users" component={UsersScreen} />
       </Stack.Group>
     </Stack.Navigator>
   );
@@ -122,21 +120,6 @@ function BottomTabNavigator() {
           <View style={{ flex: 1, alignItems: "center", justifyContent: "center", marginTop: 10 }}>
               <TabBarIcon name="home" color={color} />   
           </View>
-          ),
-          headerRight: () => (
-            <Pressable
-              onPress={() => navigation.navigate("Users")}
-              style={({ pressed }) => ({
-                opacity: pressed ? 0.5 : 1,
-              })}
-            >
-              <FontAwesome
-                name="users"
-                size={25}
-                color={"dimgray"}
-                style={{ marginRight: 15 }}
-              />
-            </Pressable>
           ),
         })}
       />
