@@ -3,7 +3,6 @@ import { Text, View } from "../components/Themed";
 import CustomButton from "../components/CustomButton";
 import { useUserData, useSignOut } from '@nhost/react'
 
-
 export default function TabTwoScreen() {
   const user = useUserData();
   const { signOut } = useSignOut();
