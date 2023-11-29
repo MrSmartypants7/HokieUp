@@ -2,13 +2,13 @@ import React from "react";
 import { View, Text, StyleSheet, ScrollView, Alert } from "react-native";
 import CustomInput from "../components/CustomInput";
 import CustomButton from "../components/CustomButton";
-//import SocialSignInButtons from "../components/SocialSignInButtons";
 import { useNavigation } from "@react-navigation/core";
 import { useForm } from "react-hook-form";
 import { useSignUpEmailPassword } from "@nhost/react";
 
+
 const EMAIL_REGEX =
-  /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@vt\.edu$/;   
 
 const SignUpScreen = () => {
   const { control, handleSubmit, watch } = useForm();
@@ -113,20 +113,7 @@ const SignUpScreen = () => {
           text={isLoading ?"Register...": "Register"}
           onPress={handleSubmit(onRegisterPressed)}
         />
-
-        <Text style={styles.text}>
-          By registering, you confirm that you accept our{" "}
-          <Text style={styles.link} onPress={onTermsOfUsePressed}>
-            Terms of Use
-          </Text>{" "}
-          and{" "}
-          <Text style={styles.link} onPress={onPrivacyPressed}>
-            Privacy Policy
-          </Text>
-        </Text>
-
       
-
         <CustomButton
           text="Have an account? Sign in"
           onPress={onSignInPress}

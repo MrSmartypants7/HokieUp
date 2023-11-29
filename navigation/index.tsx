@@ -1,8 +1,3 @@
-/**
- * If you are not familiar with React Navigation, refer to the "Fundamentals" guide:
- * https://reactnavigation.org/docs/getting-started
- *
- */
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
@@ -22,6 +17,7 @@ import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
 import TabOneScreen from "../screens/TabOneScreen";
 import TabTwoScreen from "../screens/TabTwoScreen";
+import { AntDesign } from '@expo/vector-icons';
 import {
   RootStackParamList,
   RootTabParamList,
@@ -31,6 +27,7 @@ import LinkingConfiguration from "./LinkingConfiguration";
 import { useAuthenticationStatus } from '@nhost/react';
 import ChatStackNavigator from "./ChatStackNavigator";
 import ChatContextProvider from "../context/ChatContext";
+import EventSuccessScreen from "../screens/EventSuccessScreen";
 
 export default function Navigation({
   colorScheme,
@@ -90,6 +87,11 @@ function RootNavigator() {
           component={NotFoundScreen}
           options={{ title: "Oops!" }}
         />
+         <Stack.Screen
+          name="EventSuccess"
+          component={EventSuccessScreen}
+          options={{ title: "Event Success", headerShown: false }}
+        />
         <Stack.Group screenOptions={{ presentation: "modal" }}>
           <Stack.Screen name="Event" component={ModalScreen} />
         </Stack.Group>
@@ -125,6 +127,19 @@ function BottomTabNavigator() {
           </View>
           ),
         })}
+      />
+
+      <BottomTab.Screen
+        name="NotFound"
+        component={NotFoundScreen}
+        options={{
+        title: "",
+        tabBarIcon: ({ color }) =>( 
+          <View style={{ flex: 1, alignItems: "center", justifyContent: "center", marginTop: 10 }}>
+            <AntDesign name="pluscircleo" size={24} color={color} />
+          </View>
+          ),
+        }}
       />
 
       <BottomTab.Screen 

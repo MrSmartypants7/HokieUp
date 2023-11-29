@@ -36,7 +36,6 @@ const SignInScreen = () => {
 
     const { error, needsEmailVerification} = await signInEmailPassword(email, password);
 
-
     if(error) {
       Alert.alert('Oops', error.message);
     }
@@ -47,11 +46,11 @@ const SignInScreen = () => {
   };
 
   const onForgotPasswordPressed = () => {
-    // navigation.navigate("ForgotPassword");
+    navigation.navigate("NotFound");
   };
 
   const onSignUpPress = () => {
-    navigation.navigate("SignUp");
+    navigation.navigate("SignUp")
   };
 
   return (
@@ -84,12 +83,6 @@ const SignInScreen = () => {
         <CustomButton
           text={isLoading ? "Loading..." : "Sign In"}
           onPress={handleSubmit(onSignInPressed)}
-        />
-
-        <CustomButton
-          text="Forgot password?"
-          onPress={onForgotPasswordPressed}
-          type="TERTIARY"
         />
         
         <CustomButton
