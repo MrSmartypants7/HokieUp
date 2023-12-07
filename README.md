@@ -81,7 +81,7 @@ To run HokieUp locally:
 
 1. Clone this repo
 2. Install dependencies: `npm install`
-3. Start metro bundler: `npx react-native start`
+3. Start metro bundler: `npx expo start`
 4. Run on iOS or Android:
    - iOS: `npx react-native run-ios`
    - Android:
