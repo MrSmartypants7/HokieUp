@@ -32,6 +32,49 @@ HokieUp is a mobile app built with React Native for Virginia Tech students to co
 - Profile with user icon and logout button
 - Login and logout
 
+## Unit Test Cases
+
+We have meticulously crafted comprehensive test cases to ensure the robust functionality of HokieUp.
+
+1. **Home Page:**
+   - Events are correctly listed on the home page.
+   - Users can successfully create new events.
+
+2. **Event Groups:**
+   - Users can join specific event groups.
+   - Group chat functions seamlessly within each event group.
+
+3. **Messaging:**
+   - Global chat room operates effectively.
+   - Direct messaging is reliable.
+   - Event group messaging is functional.
+
+4. **User Accounts:**
+   - Signup process ensures the use of @vt.edu email addresses.
+   - Email verification sends notifications for successful account activation.
+   - User profiles display icons and a functional logout button.
+   - Users can log in and log out without issues.
+
+## Acceptance Criteria
+
+1. **Home Page:**
+   - Events are consistently listed, and new events appear promptly.
+
+2. **Event Groups:**
+   - Joining event groups adds users correctly.
+   - Group chat displays messages accurately.
+
+3. **Messaging:**
+   - Global chat room maintains real-time conversation.
+   - Direct messaging between users works seamlessly.
+   - Event group messaging provides a smooth chat experience.
+
+4. **User Accounts:**
+   - Signup process accepts only @vt.edu emails.
+   - Email verification sends notifications to activate accounts.
+   - User profiles showcase icons and provide a reliable logout function.
+   - Login and logout processes function smoothly.
+
 ## Setup
 
 To run HokieUp locally:
