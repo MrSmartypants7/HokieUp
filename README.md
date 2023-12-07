@@ -37,7 +37,7 @@ HokieUp is a mobile app built with React Native for Virginia Tech students to co
 We have meticulously crafted comprehensive test cases to ensure the robust functionality of HokieUp.
 
 1. **Home Page:**
-   - Events are correctly listed on the home page.
+   - Events are correctly listed on the home page after refreshing the home page.
    - Users can successfully create new events.
 
 2. **Event Groups:**
