@@ -118,3 +118,7 @@ Some areas that could use contributions:
 - Automated testing
 
 Let's connect Hokies and improve student life at VT!
+
+
+![Screenshot 2024-03-22 192156](https://github.com/user-attachments/assets/0d98ca57-f5bc-4a35-9ff3-29200091f51d)
+
