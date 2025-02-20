@@ -5,6 +5,8 @@
 ---
 
 ## 🚀 Key Features  
+![Screenshot 2024-03-22 192156](https://github.com/user-attachments/assets/0d98ca57-f5bc-4a35-9ff3-29200091f51d)
+
 
 ### 🏡 Home Page  
 ✅ View **upcoming events** at a glance 📅  
@@ -35,6 +37,8 @@
 ✅ **Verify your email** to activate your account 🔑  
 👤 **Customize your profile** with an icon 🎨  
 🚪 **Login & Logout smoothly** 🚀  
+![image](https://github.com/user-attachments/assets/bed5fa58-849a-4ec3-9358-32843f510506)
+
 
 ---
 
@@ -47,17 +51,24 @@
 ### 👥 Event Groups  
 ✅ Users can **join specific event groups** 👏  
 ✅ Group chat **functions seamlessly** 💬  
+![image](https://github.com/user-attachments/assets/23220e5e-ffe2-40aa-8879-73443a5cdf7c)
+![image](https://github.com/user-attachments/assets/d05c3252-7d73-4fd3-887f-04015b849edd)
 
 ### 💌 Messaging  
 ✅ **Global chat** runs smoothly & in real-time 🌍  
 ✅ **Direct messaging** is reliable 📩  
 ✅ **Event group messaging** is **functional & engaging** 🗣️  
+![image](https://github.com/user-attachments/assets/68de3996-8245-4902-a293-785ef90ccb1d)
+
 
 ### 🔐 User Accounts  
 ✅ **Signup requires @vt.edu emails** 🏫  
 ✅ **Email verification** sends activation notifications 📧  
 ✅ **User profile displays an icon & logout button** 🎭  
 ✅ **Login/logout process is smooth & hassle-free** 🔄  
+![image](https://github.com/user-attachments/assets/9169beef-153d-4096-992d-1dd4af8ae708)
+
+   
 
 ---
 
@@ -66,10 +77,12 @@
 ### 🏡 Home Page  
 📌 Events are **consistently displayed** 📅  
 📌 New events appear **promptly** ⚡  
+![image](https://github.com/user-attachments/assets/39c03df7-9270-42be-b730-ad55efef5de7)
 
 ### 👥 Event Groups  
 📌 Users **join groups seamlessly** 🤝  
 📌 Messages in group chats **display accurately** 📝  
+![image](https://github.com/user-attachments/assets/91df9187-415a-4d7f-b8bc-6c7eb5974495)
 
 ### 💬 Messaging  
 📌 **Global chat** updates in real-time 🌎  
@@ -80,6 +93,7 @@
 📌 **Signup is restricted to @vt.edu emails** 🚪  
 📌 **Email verification process works efficiently** ✅  
 📌 **User profiles are functional & easy to manage** 👤  
+![image](https://github.com/user-attachments/assets/86c8278e-2e68-40af-b0b7-563dd3888dfd)
 
 ---
 
@@ -126,5 +140,4 @@ We welcome **all contributions** to make HokieUp better for Hokies! 🦃💜
 
 🚀 **Let’s connect Hokies & improve student life at VT!** 🎓💜  
 
-![Screenshot 2024-03-22 192156](https://github.com/user-attachments/assets/0d98ca57-f5bc-4a35-9ff3-29200091f51d)
 
