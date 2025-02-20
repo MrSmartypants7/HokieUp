@@ -14,7 +14,7 @@ const getEvent = gql`
   query GetEvent($id: uuid!) {
     Event_by_pk(id: $id) {
       id
-      name
+      title
       date
       EventAttendee {
         user {
@@ -88,7 +88,7 @@ export default function ModalScreen({ route }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{event.name}</Text>
+      <Text style={styles.title}>{event.title}</Text>
 
       <Text style={styles.time}>
         <AntDesign name="calendar" size={24} color={"black"} />{" "}

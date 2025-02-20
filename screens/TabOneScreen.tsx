@@ -8,7 +8,7 @@ const getEvent = gql`
   query GetEvents {
     Event {
       id
-      name
+      title
       date
     }
   }
@@ -29,7 +29,6 @@ const getEventsSchedule = (events: []): AgendaSchedule => {
   return items;
 };
 
-
 export default function TabOneScreen({
   navigation,
 }: RootTabScreenProps<"TabOne">) {
@@ -45,7 +44,7 @@ export default function TabOneScreen({
         style={[styles.item, { height: reservation.height }]}
         onPress={() => navigation.navigate("Event", { id: reservation.id })}
       >
-        <Text style={{ fontSize, color }}>{reservation.name}</Text>
+        <Text style={{ fontSize, color }}>{reservation.title}</Text>
       </Pressable>
     );
   };

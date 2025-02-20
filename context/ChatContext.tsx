@@ -60,8 +60,8 @@ const ChatContextProvider = ({children} : {children: React.ReactNode}) => {
 
         await newChannel.watch();
         setCurrentChannel(newChannel);
-        //navigation.goBack();
-        navigation.replace("ChatRoom")
+        navigation.goBack();
+        navigation.navigate("ChatRoom");
     };
 
     const joinEventChatRoom = async (event) => {
@@ -70,9 +70,9 @@ const ChatContextProvider = ({children} : {children: React.ReactNode}) => {
         }
         const channelId = `room-${event.id}`;
         const eventChannel = chatClient.channel('livestream', channelId, {
-          name: event.name,
+          name: event.title,
         });
-      
+      []
         await eventChannel.watch({ watchers: { limit: 100 } });
         setCurrentChannel(eventChannel);
       

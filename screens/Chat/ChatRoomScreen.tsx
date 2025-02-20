@@ -9,8 +9,8 @@ const ChatRoomScreen = () => {
   const navigation = useNavigation();
 
   useEffect(() => {
-    navigation.setOptions({ title: currentChannel?.data?.name || "Channel" });
-  }, [currentChannel?.data?.name]);
+    navigation.setOptions({ title: currentChannel?.data?.title || "Channel" });
+  }, [currentChannel?.data?.title]);
 
   return (
     <Channel channel={currentChannel}>
